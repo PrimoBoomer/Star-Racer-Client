@@ -1,0 +1,278 @@
+[gd_scene format=3 uid="uid://byhujfase7yp8"]
+
+[ext_resource type="Script" uid="uid://bm0cs8sxuqa65" path="res://Scripts/welcome.gd" id="1_4dm54"]
+[ext_resource type="Script" uid="uid://bl7brkqwdge4k" path="res://Scripts/network.gd" id="1_rwtka"]
+[ext_resource type="Script" uid="uid://becgemqyup43j" path="res://Scripts/online_menu.gd" id="2_5bkde"]
+[ext_resource type="Script" uid="uid://cs3hp0slxssrj" path="res://Scripts/core.gd" id="2_t348e"]
+[ext_resource type="Script" uid="uid://ddon18i08i0ee" path="res://Scripts/lobby_list.gd" id="3_rwtka"]
+[ext_resource type="Theme" uid="uid://dwju3pdjsoi8r" path="res://new_theme.tres" id="4_5bkde"]
+
+[sub_resource type="Theme" id="Theme_5bkde"]
+
+[sub_resource type="SystemFont" id="SystemFont_r5v3i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ll2xe"]
+font = SubResource("SystemFont_r5v3i")
+font_size = 78
+font_color = Color(0.21462628, 0.6473038, 0.6715849, 1)
+
+[sub_resource type="Theme" id="Theme_rwtka"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ruji2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y0s6v"]
+font_size = 18
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0s6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avk8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1o2k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dm54"]
+font_size = 43
+font_color = Color(0.14511785, 0.50686955, 0.98715395, 1)
+
+[node name="StarRacer" type="Node" unique_id=606531555]
+
+[node name="Core" type="Node" parent="." unique_id=642538315]
+unique_name_in_owner = true
+script = ExtResource("2_t348e")
+
+[node name="Network" type="Node" parent="." unique_id=495099737]
+unique_name_in_owner = true
+script = ExtResource("1_rwtka")
+
+[node name="Track" type="Node3D" parent="." unique_id=1075055506]
+unique_name_in_owner = true
+
+[node name="UI" type="Control" parent="." unique_id=68307350]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_5bkde")
+script = ExtResource("1_4dm54")
+
+[node name="GameTitle" type="Label" parent="UI" unique_id=1843833676]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 363.0
+offset_right = 749.0
+offset_bottom = 107.0
+grow_horizontal = 2
+text = "Star Racer"
+label_settings = SubResource("LabelSettings_ll2xe")
+
+[node name="WelcomeMenu" type="VSplitContainer" parent="UI" unique_id=1600321162]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 441.0
+offset_top = 196.5
+offset_right = 671.0
+offset_bottom = 411.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rwtka")
+split_offsets = PackedInt32Array(85, 118)
+collapsed = true
+dragger_visibility = 1
+split_offset = 85
+
+[node name="TrainingButton" type="Button" parent="UI/WelcomeMenu" unique_id=1458331686]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_5bkde")
+text = "Training"
+
+[node name="HSeparator5" type="HSeparator" parent="UI/WelcomeMenu" unique_id=928308484]
+custom_minimum_size = Vector2(0, 21.2)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ruji2")
+
+[node name="Onlinebutton" type="Button" parent="UI/WelcomeMenu" unique_id=1172790992]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_5bkde")
+text = "Online"
+
+[node name="OnlineMenu" type="VSplitContainer" parent="UI" unique_id=1643963703]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 356.0
+offset_top = 83.0
+offset_right = 756.0
+offset_bottom = 525.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(26, 42, 54, 70, 113, 325, 341)
+dragging_enabled = false
+split_offset = 26
+script = ExtResource("2_5bkde")
+
+[node name="Split2" type="HSplitContainer" parent="UI/OnlineMenu" unique_id=1804011941]
+layout_mode = 2
+split_offsets = PackedInt32Array(93)
+dragging_enabled = false
+split_offset = 93
+
+[node name="Label" type="Label" parent="UI/OnlineMenu/Split2" unique_id=1772962850]
+layout_mode = 2
+text = "Nickname:"
+label_settings = SubResource("LabelSettings_y0s6v")
+
+[node name="NicknameField" type="TextEdit" parent="UI/OnlineMenu/Split2" unique_id=1850231097]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/line_spacing = -2
+
+[node name="HSeparator4" type="HSeparator" parent="UI/OnlineMenu" unique_id=1139691871]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/OnlineMenu" unique_id=696901292]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/OnlineMenu/VBoxContainer" unique_id=1642335717]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/OnlineMenu/VBoxContainer/HBoxContainer" unique_id=917454363]
+layout_mode = 2
+text = "Lobby name:"
+
+[node name="LobbynameField" type="TextEdit" parent="UI/OnlineMenu/VBoxContainer/HBoxContainer" unique_id=543263998]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_spacing = -2
+
+[node name="CreateButton" type="Button" parent="UI/OnlineMenu/VBoxContainer" unique_id=3380370]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create a lobby"
+
+[node name="HSeparator2" type="HSeparator" parent="UI/OnlineMenu" unique_id=971983920]
+layout_mode = 2
+
+[node name="RefreshListButton" type="Button" parent="UI/OnlineMenu" unique_id=920269230]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Refresh list"
+
+[node name="LobbyList" type="Tree" parent="UI/OnlineMenu" unique_id=975235838]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_font_sizes/title_button_font_size = 25
+theme_override_styles/title_button_normal = SubResource("StyleBoxEmpty_y0s6v")
+theme_override_styles/title_button_pressed = SubResource("StyleBoxEmpty_avk8s")
+theme_override_styles/title_button_hover = SubResource("StyleBoxEmpty_u1o2k")
+columns = 3
+column_titles_visible = true
+hide_folding = true
+enable_recursive_folding = false
+enable_drag_unfolding = false
+hide_root = true
+select_mode = 1
+auto_tooltip = false
+scroll_horizontal_enabled = false
+script = ExtResource("3_rwtka")
+
+[node name="HSeparator" type="HSeparator" parent="UI/OnlineMenu" unique_id=1767618287]
+layout_mode = 2
+
+[node name="HSplit" type="HBoxContainer" parent="UI/OnlineMenu" unique_id=489445835]
+layout_mode = 2
+alignment = 1
+
+[node name="Back" type="Button" parent="UI/OnlineMenu/HSplit" unique_id=230863666]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Back"
+
+[node name="JoinButton" type="Button" parent="UI/OnlineMenu/HSplit" unique_id=142951911]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+disabled = true
+text = "Join selected"
+
+[node name="IntermissionMenu" type="VSplitContainer" parent="UI" unique_id=847659136]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 354.0
+offset_top = 217.0
+offset_right = 694.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(55, 71, 83, 99)
+dragging_enabled = false
+split_offset = 55
+
+[node name="Label" type="Label" parent="UI/IntermissionMenu" unique_id=1606305829]
+layout_mode = 2
+theme = ExtResource("4_5bkde")
+text = "Players ?/?"
+
+[node name="HSeparator2" type="HSeparator" parent="UI/IntermissionMenu" unique_id=1590507003]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/IntermissionMenu" unique_id=1331463627]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="UI/IntermissionMenu" unique_id=1091437012]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="UI/IntermissionMenu" unique_id=329240496]
+layout_mode = 2
+theme = ExtResource("4_5bkde")
+text = "Back to online menu"
+
+[node name="InfoLabel" type="Label" parent="UI" unique_id=63298000]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 402.5
+offset_top = 460.0
+offset_right = 709.50024
+offset_bottom = 519.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_4dm54")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="UI/WelcomeMenu/TrainingButton" to="UI" method="_on_training_button_pressed"]
+[connection signal="pressed" from="UI/WelcomeMenu/Onlinebutton" to="UI" method="_on_onlinebutton_pressed"]
+[connection signal="visibility_changed" from="UI/OnlineMenu" to="UI/OnlineMenu" method="_on_visibility_changed"]
+[connection signal="pressed" from="UI/OnlineMenu/VBoxContainer/CreateButton" to="UI/OnlineMenu" method="_on_create_button_pressed"]
+[connection signal="pressed" from="UI/OnlineMenu/RefreshListButton" to="UI/OnlineMenu" method="_on_refresh_list_button_pressed"]
+[connection signal="item_selected" from="UI/OnlineMenu/LobbyList" to="UI/OnlineMenu" method="_on_lobby_list_item_selected"]
+[connection signal="visibility_changed" from="UI/OnlineMenu/LobbyList" to="UI/OnlineMenu/LobbyList" method="_on_visibility_changed"]
+[connection signal="pressed" from="UI/OnlineMenu/HSplit/Back" to="UI/OnlineMenu" method="_on_back_pressed"]
+[connection signal="pressed" from="UI/OnlineMenu/HSplit/JoinButton" to="UI/OnlineMenu" method="_on_join_pressed"]

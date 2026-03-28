@@ -1,0 +1,398 @@
+[gd_scene format=3 uid="uid://byhujfase7yp8"]
+
+[ext_resource type="Script" uid="uid://psdcljkfm4fs" path="res://Scripts/star_racer.gd" id="1_jahkg"]
+[ext_resource type="Script" uid="uid://bl7brkqwdge4k" path="res://Scripts/network.gd" id="1_rwtka"]
+[ext_resource type="Script" uid="uid://0u22f5eygcu3" path="res://Scripts/game.gd" id="3_hm561"]
+[ext_resource type="Script" uid="uid://dtpgdenatq2uo" path="res://Scripts/ui.gd" id="3_rwtka"]
+
+[sub_resource type="SystemFont" id="SystemFont_r5v3i"]
+font_names = PackedStringArray("Calibri")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ll2xe"]
+font = SubResource("SystemFont_r5v3i")
+font_size = 55
+font_color = Color(0.3019608, 0.63529414, 0.85882354, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t348e"]
+font_size = 11
+font_color = Color(0.3019608, 0.63529414, 0.85882354, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rnhwg"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dm54"]
+font_size = 33
+font_color = Color(0.14511785, 0.50686955, 0.98715395, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hm561"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0s6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avk8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1o2k"]
+
+[sub_resource type="SystemFont" id="SystemFont_hm561"]
+font_names = PackedStringArray("Lucida Console")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t348e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_txy6s"]
+font_size = 45
+
+[node name="StarRacer" type="Node3D" unique_id=522470395]
+script = ExtResource("1_jahkg")
+
+[node name="Game" type="Node3D" parent="." unique_id=1075055506]
+unique_name_in_owner = true
+script = ExtResource("3_hm561")
+
+[node name="Network" type="Node" parent="." unique_id=495099737]
+unique_name_in_owner = true
+script = ExtResource("1_rwtka")
+
+[node name="UI" type="Control" parent="." unique_id=68307350]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_rwtka")
+
+[node name="AlphaInfo" type="Control" parent="UI" unique_id=313684329]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameTitle" type="Label" parent="UI/AlphaInfo" unique_id=1843833676]
+layout_mode = 0
+offset_left = 5.07
+offset_right = 232.07
+offset_bottom = 56.0
+text = "Star Racer"
+label_settings = SubResource("LabelSettings_ll2xe")
+
+[node name="GameAuthor" type="Label" parent="UI/AlphaInfo" unique_id=60573804]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 31.0
+offset_right = 282.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 7
+text = "By Primo"
+label_settings = SubResource("LabelSettings_t348e")
+
+[node name="GameVersion" type="Label" parent="UI/AlphaInfo" unique_id=1668176429]
+layout_mode = 0
+offset_left = 1203.0
+offset_top = 4.0
+offset_right = 1282.0
+offset_bottom = 35.0
+text = "v0.1 alpha
+30/03/2026"
+label_settings = SubResource("LabelSettings_rnhwg")
+
+[node name="GameInfo" type="Label" parent="UI/AlphaInfo" unique_id=1824683306]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 669.0
+offset_right = 338.0
+offset_bottom = 726.0
+text = "github.com/zolstoy/Star-Racer-Server
+github.com/zolstoy/Star-Racer-Client
+ko-fi.com/primo_boomer"
+label_settings = SubResource("LabelSettings_rnhwg")
+
+[node name="InfoLabel" type="Label" parent="UI" unique_id=63298000]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38900003
+anchor_top = 0.93500006
+anchor_right = 0.60300004
+anchor_bottom = 1.0
+offset_left = 0.079956055
+offset_top = 5.7999268
+offset_right = 6.159912
+offset_bottom = -3.0700073
+grow_horizontal = 2
+grow_vertical = 0
+text = "Welcome"
+label_settings = SubResource("LabelSettings_4dm54")
+horizontal_alignment = 1
+
+[node name="ColorBackground" type="ColorRect" parent="UI" unique_id=74609616]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1120, 620)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = -310.0
+offset_right = 560.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23529412, 0.49411765, 0.6627451, 0.5411765)
+
+[node name="OnlineMenu" type="VSplitContainer" parent="UI" unique_id=1643963703]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1100, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -300.0
+offset_right = 550.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(39, 101, 115, -188, -101, -50)
+dragging_enabled = false
+split_offset = 39
+
+[node name="CreateLobbyMenu1" type="HBoxContainer" parent="UI/OnlineMenu" unique_id=1135521429]
+layout_mode = 2
+
+[node name="MinPlayersLabel" type="Label" parent="UI/OnlineMenu/CreateLobbyMenu1" unique_id=1677443846]
+layout_mode = 2
+text = "Min players needed"
+
+[node name="MinPlayersField" type="TextEdit" parent="UI/OnlineMenu/CreateLobbyMenu1" unique_id=1018105729]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "1"
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="MaxPlayersLabel" type="Label" parent="UI/OnlineMenu/CreateLobbyMenu1" unique_id=1920602252]
+layout_mode = 2
+text = "Max players"
+
+[node name="MaxPlayersField" type="TextEdit" parent="UI/OnlineMenu/CreateLobbyMenu1" unique_id=1828893130]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "1"
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="CreateLobbyMenu2" type="HBoxContainer" parent="UI/OnlineMenu" unique_id=1642335717]
+layout_mode = 2
+
+[node name="LobbyNameLabel" type="Label" parent="UI/OnlineMenu/CreateLobbyMenu2" unique_id=917454363]
+layout_mode = 2
+text = "Lobby name"
+
+[node name="LobbyNameField" type="TextEdit" parent="UI/OnlineMenu/CreateLobbyMenu2" unique_id=543263998]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MyLobby"
+
+[node name="CreateButton" type="Button" parent="UI/OnlineMenu/CreateLobbyMenu2" unique_id=3380370]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create a lobby"
+
+[node name="HSeparator" type="HSeparator" parent="UI/OnlineMenu" unique_id=1216873843]
+layout_mode = 2
+theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hm561")
+
+[node name="LobbiesList" type="Tree" parent="UI/OnlineMenu" unique_id=975235838]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/title_button_font_size = 12
+theme_override_styles/title_button_normal = SubResource("StyleBoxEmpty_y0s6v")
+theme_override_styles/title_button_pressed = SubResource("StyleBoxEmpty_avk8s")
+theme_override_styles/title_button_hover = SubResource("StyleBoxEmpty_u1o2k")
+columns = 6
+column_titles_visible = true
+hide_folding = true
+enable_recursive_folding = false
+enable_drag_unfolding = false
+hide_root = true
+select_mode = 1
+auto_tooltip = false
+scroll_horizontal_enabled = false
+
+[node name="RefreshListButton" type="Button" parent="UI/OnlineMenu" unique_id=920269230]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "Refresh list"
+
+[node name="JoinButton" type="Button" parent="UI/OnlineMenu" unique_id=142951911]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Join selected"
+
+[node name="PlayerOptions" type="HSplitContainer" parent="UI/OnlineMenu" unique_id=1804011941]
+layout_mode = 2
+split_offsets = PackedInt32Array(93)
+dragging_enabled = false
+split_offset = 93
+
+[node name="NicknameOptions" type="HSplitContainer" parent="UI/OnlineMenu/PlayerOptions" unique_id=1183388294]
+layout_mode = 2
+split_offsets = PackedInt32Array(93)
+dragging_enabled = false
+split_offset = 93
+
+[node name="NicknameLabel" type="Label" parent="UI/OnlineMenu/PlayerOptions/NicknameOptions" unique_id=809471443]
+layout_mode = 2
+text = "Nickname"
+
+[node name="NicknameField" type="TextEdit" parent="UI/OnlineMenu/PlayerOptions/NicknameOptions" unique_id=1850231097]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "MyNick"
+
+[node name="IntermissionMenu" type="VSplitContainer" parent="UI" unique_id=847659136]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1100, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -300.0
+offset_right = 550.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.001)
+split_offsets = PackedInt32Array(0, 0, 0, 0, 0, 0)
+dragging_enabled = false
+
+[node name="LobbyName" type="Label" parent="UI/IntermissionMenu" unique_id=355730984]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_hm561")
+theme_override_font_sizes/font_size = 80
+text = "Lobbyname"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="UI/IntermissionMenu" unique_id=1764069220]
+layout_mode = 2
+theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_t348e")
+
+[node name="CurrentTrackname" type="Label" parent="UI/IntermissionMenu" unique_id=1606305829]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Trackname"
+label_settings = SubResource("LabelSettings_txy6s")
+horizontal_alignment = 1
+
+[node name="PlayersCount" type="Label" parent="UI/IntermissionMenu" unique_id=956375012]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Players count"
+horizontal_alignment = 1
+
+[node name="Separator2" type="HSeparator" parent="UI/IntermissionMenu" unique_id=1008235420]
+layout_mode = 2
+theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_t348e")
+
+[node name="PlayersInLobby" type="VBoxContainer" parent="UI/IntermissionMenu" unique_id=1331463627]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="UI/IntermissionMenu" unique_id=329240496]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Back to online menu"
+
+[node name="PlayMenuBackground" type="ColorRect" parent="UI" unique_id=1462497250]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -75.0
+offset_right = 125.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23529412, 0.49411765, 0.6627451, 0.5411765)
+
+[node name="PlayMenu" type="VSplitContainer" parent="UI" unique_id=638893364]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(39)
+split_offset = 39
+
+[node name="BackToRaceButton" type="Button" parent="UI/PlayMenu" unique_id=1169749013]
+layout_mode = 2
+text = "Back to race"
+
+[node name="LeaveButton" type="Button" parent="UI/PlayMenu" unique_id=1062109794]
+layout_mode = 2
+text = "Leave"
+
+[connection signal="focus_exited" from="UI/OnlineMenu/CreateLobbyMenu1/MinPlayersField" to="UI" method="_on_min_players_field_focus_exited"]
+[connection signal="text_set" from="UI/OnlineMenu/CreateLobbyMenu1/MinPlayersField" to="UI" method="_on_min_players_field_focus_exited"]
+[connection signal="focus_exited" from="UI/OnlineMenu/CreateLobbyMenu1/MaxPlayersField" to="UI" method="_on_max_players_field_focus_exited"]
+[connection signal="text_set" from="UI/OnlineMenu/CreateLobbyMenu1/MaxPlayersField" to="UI" method="_on_max_players_field_focus_exited"]
+[connection signal="focus_exited" from="UI/OnlineMenu/CreateLobbyMenu2/LobbyNameField" to="UI" method="_on_lobby_name_field_focus_exited"]
+[connection signal="text_set" from="UI/OnlineMenu/CreateLobbyMenu2/LobbyNameField" to="UI" method="_on_lobby_name_field_focus_exited"]
+[connection signal="pressed" from="UI/OnlineMenu/CreateLobbyMenu2/CreateButton" to="UI" method="_on_create_button_pressed"]
+[connection signal="pressed" from="UI/OnlineMenu/RefreshListButton" to="UI" method="_on_refresh_list_button_pressed"]
+[connection signal="pressed" from="UI/OnlineMenu/JoinButton" to="UI" method="_on_join_button_pressed"]
+[connection signal="focus_exited" from="UI/OnlineMenu/PlayerOptions/NicknameOptions/NicknameField" to="UI" method="_on_nickname_field_focus_exited"]
+[connection signal="text_set" from="UI/OnlineMenu/PlayerOptions/NicknameOptions/NicknameField" to="UI" method="_on_nickname_field_focus_exited"]
+[connection signal="pressed" from="UI/IntermissionMenu/BackButton" to="UI" method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/PlayMenu/BackToRaceButton" to="UI" method="_on_back_to_race_pressed"]
+[connection signal="pressed" from="UI/PlayMenu/LeaveButton" to="UI" method="_on_leave_pressed"]

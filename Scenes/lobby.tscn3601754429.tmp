@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://cjm2rbspoi2lt"]
+
+[ext_resource type="Script" uid="uid://bm0cs8sxuqa65" path="res://Scripts/lobby.gd" id="1_nvaej"]
+[ext_resource type="Script" uid="uid://becgemqyup43j" path="res://Scripts/online_menu.gd" id="2_u1o2k"]
+[ext_resource type="Script" uid="uid://ddon18i08i0ee" path="res://Scripts/lobby_list.gd" id="2_y0s6v"]
+
+[sub_resource type="SystemFont" id="SystemFont_r5v3i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ll2xe"]
+font = SubResource("SystemFont_r5v3i")
+font_size = 78
+font_color = Color(0.21462628, 0.6473038, 0.6715849, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ruji2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y0s6v"]
+font_size = 18
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0s6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avk8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1o2k"]
+
+[node name="UI" type="Control" unique_id=1519236205]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nvaej")
+
+[node name="GameTitle" type="Label" parent="." unique_id=1843833676]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Star Racer"
+label_settings = SubResource("LabelSettings_ll2xe")
+
+[node name="WelcomeMenu" type="VSplitContainer" parent="." unique_id=1600321162]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(85, 118)
+collapsed = true
+dragger_visibility = 1
+split_offset = 85
+
+[node name="TrainingButton" type="Button" parent="WelcomeMenu" unique_id=1458331686]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Training"
+
+[node name="HSeparator5" type="HSeparator" parent="WelcomeMenu" unique_id=928308484]
+custom_minimum_size = Vector2(0, 21.2)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ruji2")
+
+[node name="Onlinebutton" type="Button" parent="WelcomeMenu" unique_id=1172790992]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Online"
+
+[node name="OnlineMenu" type="VSplitContainer" parent="." unique_id=1643963703]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(26, 42, 85, 101, 413, 429)
+dragging_enabled = false
+split_offset = 26
+script = ExtResource("2_u1o2k")
+
+[node name="Split2" type="HSplitContainer" parent="OnlineMenu" unique_id=1804011941]
+layout_mode = 2
+split_offsets = PackedInt32Array(93)
+dragging_enabled = false
+split_offset = 93
+
+[node name="Label" type="Label" parent="OnlineMenu/Split2" unique_id=1772962850]
+layout_mode = 2
+text = "Nickname:"
+label_settings = SubResource("LabelSettings_y0s6v")
+
+[node name="NicknameField" type="TextEdit" parent="OnlineMenu/Split2" unique_id=1850231097]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/line_spacing = -2
+
+[node name="HSeparator4" type="HSeparator" parent="OnlineMenu" unique_id=1139691871]
+layout_mode = 2
+
+[node name="Create" type="Button" parent="OnlineMenu" unique_id=3380370]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create a lobby"
+
+[node name="HSeparator2" type="HSeparator" parent="OnlineMenu" unique_id=971983920]
+layout_mode = 2
+
+[node name="LobbyList" type="Tree" parent="OnlineMenu" unique_id=975235838]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_font_sizes/title_button_font_size = 25
+theme_override_styles/title_button_normal = SubResource("StyleBoxEmpty_y0s6v")
+theme_override_styles/title_button_pressed = SubResource("StyleBoxEmpty_avk8s")
+theme_override_styles/title_button_hover = SubResource("StyleBoxEmpty_u1o2k")
+columns = 3
+column_titles_visible = true
+hide_folding = true
+enable_recursive_folding = false
+enable_drag_unfolding = false
+hide_root = true
+select_mode = 1
+auto_tooltip = false
+scroll_horizontal_enabled = false
+script = ExtResource("2_y0s6v")
+
+[node name="HSeparator" type="HSeparator" parent="OnlineMenu" unique_id=1767618287]
+layout_mode = 2
+
+[node name="HSplit" type="HBoxContainer" parent="OnlineMenu" unique_id=489445835]
+layout_mode = 2
+alignment = 1
+
+[node name="Back" type="Button" parent="OnlineMenu/HSplit" unique_id=230863666]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+
+[node name="Join" type="Button" parent="OnlineMenu/HSplit" unique_id=142951911]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Join selected"
+
+[connection signal="button_up" from="WelcomeMenu/TrainingButton" to="." method="_on_training_button_button_up"]
+[connection signal="pressed" from="WelcomeMenu/Onlinebutton" to="." method="_on_onlinebutton_pressed"]
+[connection signal="visibility_changed" from="OnlineMenu" to="OnlineMenu" method="_on_visibility_changed"]
+[connection signal="draw" from="OnlineMenu/LobbyList" to="OnlineMenu/LobbyList" method="_on_draw"]
+[connection signal="pressed" from="OnlineMenu/HSplit/Back" to="OnlineMenu" method="_on_back_pressed"]

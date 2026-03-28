@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cjm2rbspoi2lt"]
+
+[ext_resource type="Script" uid="uid://bm0cs8sxuqa65" path="res://Scripts/lobby.gd" id="1_nvaej"]
+[ext_resource type="Script" uid="uid://ddon18i08i0ee" path="res://Scripts/online_menu.gd" id="2_y0s6v"]
+
+[sub_resource type="SystemFont" id="SystemFont_r5v3i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ll2xe"]
+font = SubResource("SystemFont_r5v3i")
+font_size = 78
+font_color = Color(0.21462628, 0.6473038, 0.6715849, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y0s6v"]
+font_size = 18
+
+[sub_resource type="Theme" id="Theme_y0s6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0s6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avk8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1o2k"]
+
+[node name="UI" type="Control" unique_id=1519236205]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nvaej")
+
+[node name="GameTitle" type="Label" parent="." unique_id=1843833676]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Star Racer"
+label_settings = SubResource("LabelSettings_ll2xe")
+
+[node name="MainMenu" type="VSplitContainer" parent="." unique_id=1600321162]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(31)
+split_offset = 31
+
+[node name="TrainingButton" type="Button" parent="MainMenu" unique_id=1458331686]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Training"
+
+[node name="Onlinebutton" type="Button" parent="MainMenu" unique_id=1172790992]
+layout_mode = 2
+theme_override_font_sizes/font_size = 81
+text = "Online"
+
+[node name="VSplitContainer" type="VSplitContainer" parent="." unique_id=1643963703]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(0, 431)
+dragging_enabled = false
+
+[node name="HBoxContainer" type="HSplitContainer" parent="VSplitContainer" unique_id=1804011941]
+layout_mode = 2
+dragging_enabled = false
+
+[node name="Label" type="Label" parent="VSplitContainer/HBoxContainer" unique_id=1772962850]
+layout_mode = 2
+text = "Nickname:"
+label_settings = SubResource("LabelSettings_y0s6v")
+
+[node name="TextEdit" type="TextEdit" parent="VSplitContainer/HBoxContainer" unique_id=1850231097]
+layout_mode = 2
+
+[node name="OnlineMenu" type="Tree" parent="VSplitContainer" unique_id=975235838]
+layout_mode = 2
+theme = SubResource("Theme_y0s6v")
+theme_override_colors/title_button_color = Color(5.198121e-06, 0.8225026, 0.8636302, 1)
+theme_override_font_sizes/title_button_font_size = 25
+theme_override_styles/title_button_normal = SubResource("StyleBoxEmpty_y0s6v")
+theme_override_styles/title_button_pressed = SubResource("StyleBoxEmpty_avk8s")
+theme_override_styles/title_button_hover = SubResource("StyleBoxEmpty_u1o2k")
+columns = 3
+column_titles_visible = true
+hide_folding = true
+enable_recursive_folding = false
+enable_drag_unfolding = false
+hide_root = true
+select_mode = 1
+auto_tooltip = false
+scroll_horizontal_enabled = false
+script = ExtResource("2_y0s6v")
+
+[node name="HBoxContainer2" type="HSplitContainer" parent="VSplitContainer" unique_id=41855882]
+layout_mode = 2
+split_offsets = PackedInt32Array(45)
+dragging_enabled = false
+split_offset = 45
+
+[node name="Back" type="Button" parent="VSplitContainer/HBoxContainer2" unique_id=230863666]
+layout_mode = 2
+text = "Back"
+
+[node name="Join" type="Button" parent="VSplitContainer/HBoxContainer2" unique_id=142951911]
+layout_mode = 2
+text = "Join"
+
+[connection signal="button_up" from="MainMenu/TrainingButton" to="." method="_on_training_button_button_up"]
+[connection signal="pressed" from="MainMenu/Onlinebutton" to="." method="_on_onlinebutton_pressed"]
+[connection signal="visibility_changed" from="VSplitContainer/OnlineMenu" to="VSplitContainer/OnlineMenu" method="_on_visibility_changed"]

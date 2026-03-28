@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://3nsyynve72d0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
+size = Vector3(1.2684479, 1.5902176, 0.90545654)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wqo35"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iim66"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_modcp"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cj3sh"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8tj53"]
+
+[node name="Car" type="StaticBody3D" unique_id=1058369284]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=156720385]
+transform = Transform3D(-2.4899998, 5.684342e-14, 0, -1.5467286e-21, -1.08841334e-07, -2.4899998, -5.684342e-14, -2.4899998, 1.08841334e-07, 0.0005653173, 1.1433613, 0.060200527)
+shape = SubResource("BoxShape3D_a0tk4")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=880295020]
+transform = Transform3D(2, -1.4561579e-09, -3.271717e-07, -3.242593e-07, 0.25759113, -1.9833425, 4.358239e-08, 1.9833425, 0.25759113, -0.005418898, 1.4197848, -0.0026587)
+mesh = SubResource("CapsuleMesh_wqo35")
+
+[node name="WheelFixedLeft" type="MeshInstance3D" parent="." unique_id=702103095]
+transform = Transform3D(-9.1028085e-08, 0.41649625, -9.102814e-08, -3.6411242e-07, -1.8205625e-08, -2.082481, -2.082481, -1.8205629e-08, 3.641124e-07, -1.2520239, 1.0502952, 1.3221948)
+mesh = SubResource("CylinderMesh_iim66")
+
+[node name="WheelFixedRight" type="MeshInstance3D" parent="." unique_id=836063252]
+transform = Transform3D(2.4833298e-08, 0.41649625, -9.102815e-08, 0, -1.8205627e-08, -2.082481, -2.082481, 4.9666653e-09, -1.0855015e-15, 1.2514598, 1.0502952, 1.3221948)
+mesh = SubResource("CylinderMesh_modcp")
+
+[node name="WheelTurnLeft" type="MeshInstance3D" parent="." unique_id=99737819]
+transform = Transform3D(-6.068541e-08, 0.27766412, -6.0685394e-08, -2.427416e-07, -1.213708e-08, -1.3883204, -1.3883204, -1.21370825e-08, 2.4274152e-07, -1.2828496, 0.7243515, -1.3753053)
+mesh = SubResource("CylinderMesh_cj3sh")
+
+[node name="WheelTurnRight" type="MeshInstance3D" parent="." unique_id=1756203209]
+transform = Transform3D(-6.068541e-08, 0.27766412, -6.0685394e-08, -2.427416e-07, -1.213708e-08, -1.3883204, -1.3883204, -1.21370825e-08, 2.4274152e-07, 1.2720101, 0.7243515, -1.3752915)
+mesh = SubResource("CylinderMesh_8tj53")

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://ci8rakxld2jn4"]
+
+[ext_resource type="Script" uid="uid://2enfooltbgot" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Material" uid="uid://dyaujup24015c" path="res://tracks/circuit_one/floor_mat.tres" id="2_dqkch"]
+[ext_resource type="AudioStream" uid="uid://cug18x8e35vqo" path="res://sounds/engine1.mp3" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://0g1xtup3ydqf" path="res://scripts/camera.gd" id="3_dqkch"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v0iea"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0iea"]
+size = Vector3(3.5, 2.8, 4.4)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wqo35"]
+material = ExtResource("2_dqkch")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8tj53"]
+material = ExtResource("2_dqkch")
+
+[node name="Car" type="RigidBody3D" unique_id=911942295]
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_v0iea")
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=549238354]
+shape = SubResource("BoxShape3D_v0iea")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=880295020]
+transform = Transform3D(2, -1.4565557e-09, -3.2717108e-07, -3.2425856e-07, 0.25759053, -1.9833423, 4.358253e-08, 1.9833423, 0.25759053, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_wqo35")
+
+[node name="WheelFixedLeft" type="MeshInstance3D" parent="Body" unique_id=702103095]
+transform = Transform3D(-6.8203995e-08, 0.20824812, 1.2330146e-07, -1.0325682, -1.0351066e-08, -0.13410668, -0.13410668, -2.6211783e-08, 1.0325682, -0.62330246, 0.6331154, 0.26852363)
+mesh = SubResource("CylinderMesh_8tj53")
+
+[node name="WheelFixedRight" type="MeshInstance3D" parent="Body" unique_id=836063252]
+transform = Transform3D(-1.0273276e-08, 0.20824812, 1.233015e-07, -1.0325682, 1.1385842e-09, -0.13410686, -0.13410686, -2.4719546e-08, 1.0325682, 0.6284394, 0.6331153, 0.2685234)
+mesh = SubResource("CylinderMesh_8tj53")
+
+[node name="WheelTurnLeft" type="MeshInstance3D" parent="Body" unique_id=99737819]
+unique_name_in_owner = true
+transform = Transform3D(-4.1018723e-08, 0.13883208, 8.2201026e-08, -0.6883789, -6.017999e-09, -0.08940446, -0.08940446, -1.735988e-08, 0.6883789, -0.63871527, -0.7253914, 0.2564255)
+mesh = SubResource("CylinderMesh_8tj53")
+
+[node name="WheelTurnRight" type="MeshInstance3D" parent="Body" unique_id=1756203209]
+unique_name_in_owner = true
+transform = Transform3D(-4.546933e-08, 0.13883208, 8.220102e-08, -0.6883789, -6.9007053e-09, -0.08940446, -0.08940446, -1.7474523e-08, 0.6883789, 0.63871455, -0.7253846, 0.25642622)
+mesh = SubResource("CylinderMesh_8tj53")
+
+[node name="Forward" type="Node3D" parent="." unique_id=577425519]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Camera" type="Camera3D" parent="." unique_id=2113304178]
+transform = Transform3D(1, -2.9652021e-08, -2.3902825e-07, 1.4519352e-07, 0.86602545, 0.49999997, 1.9217853e-07, -0.49999997, 0.86602545, 0, 3.9535747, 3.7251148)
+fov = 90.0
+script = ExtResource("3_dqkch")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera" unique_id=1168082445]
+
+[node name="EngineAudio" type="AudioStreamPlayer3D" parent="." unique_id=364818592]
+unique_name_in_owner = true
+stream = ExtResource("2_qhqgy")
+volume_db = -10.0
+pitch_scale = 0.1
+parameters/looping = false
